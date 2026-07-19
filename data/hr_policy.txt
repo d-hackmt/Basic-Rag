@@ -1,0 +1,49 @@
+COMPANY HR POLICY HANDBOOK
+Acme Corp - Employee Handbook (Demo Document)
+
+1. LEAVE POLICY
+All full-time employees are entitled to 20 days of paid annual leave per calendar year.
+Leave requests must be submitted through the HR portal at least 5 working days in advance.
+Unused annual leave can be carried forward to the next year, up to a maximum of 5 days.
+Sick leave is separate from annual leave, and employees get 10 paid sick days per year.
+A medical certificate is required for sick leave longer than 2 consecutive days.
+
+2. WORK FROM HOME POLICY
+Employees may work from home up to 2 days per week, subject to manager approval.
+Fully remote work arrangements require written approval from the department head.
+Employees working from home must be reachable during core hours: 10 AM to 4 PM.
+
+3. PROBATION PERIOD
+All new employees undergo a probation period of 3 months from their date of joining.
+During probation, employees are not eligible for paid leave, but may take unpaid leave
+in case of emergencies, subject to manager approval.
+Performance is reviewed at the end of the probation period to confirm employment.
+
+4. NOTICE PERIOD
+Employees who wish to resign must serve a notice period of 30 days.
+During the probation period, the notice period is reduced to 15 days.
+The company may waive the notice period at its discretion, with full and final settlement
+processed within 45 days of the last working day.
+
+5. REIMBURSEMENT POLICY
+Employees can claim reimbursement for approved business expenses such as travel,
+client meals, and internet bills used for official work.
+All reimbursement claims must be submitted with valid bills within 30 days of the expense.
+Claims are processed within 10 working days after approval from the reporting manager.
+
+6. CODE OF CONDUCT
+Employees are expected to maintain professionalism and respect in the workplace.
+Harassment, discrimination, or any form of workplace misconduct will not be tolerated
+and may result in disciplinary action, including termination.
+All employees must complete an annual Code of Conduct training.
+
+7. HOLIDAYS
+The company observes 12 public holidays every year, as per the official holiday calendar
+published by HR at the start of each year.
+Employees working on a public holiday are eligible for compensatory leave.
+
+8. EXIT POLICY
+Upon resignation or termination, employees must complete a clearance process involving
+IT, Finance, and HR departments before their last working day.
+Full and final settlement, including any pending reimbursements and leave encashment,
+is processed within 45 days of the last working day.
