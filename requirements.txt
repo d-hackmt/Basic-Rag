@@ -1,7 +1,6 @@
 python-dotenv
 
 
-
 langchain 
 langchain-core 
 langchain-community
