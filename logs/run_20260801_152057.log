@@ -1,0 +1,36 @@
+2026-08-01 15:21:03,158 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-01 15:21:03,158 | INFO | hr_assistant.pipeline | Vector store already exists on disk, reusing it
+2026-08-01 15:21:03,158 | INFO | hr_assistant.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-08-01 15:21:03,159 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-01 15:21:03,164 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-08-01 15:21:03,165 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-08-01 15:21:03,165 | INFO | faiss.loader | Loading faiss.
+2026-08-01 15:21:03,628 | INFO | faiss.loader | Successfully loaded faiss.
+2026-08-01 15:21:03,686 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-01 15:21:03,690 | INFO | hr_assistant.llm | Initializing LLM 'openai/gpt-oss-20b'
+2026-08-01 15:21:05,182 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-01 15:21:05,222 | INFO | hr_assistant.agent | HR agent ready
+2026-08-01 15:21:05,222 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-08-01 15:22:29,498 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-01 15:22:29,503 | INFO | hr_assistant.pipeline | User question: hello 
+2026-08-01 15:22:29,994 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-01 15:22:30,019 | INFO | hr_assistant.pipeline | Final answer: 👋 Hi there! How can I help you today? If you have any questions about HR policies—like leave, work‑from‑home, probation, or anything else—just let me know!
+2026-08-01 15:23:17,455 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-01 15:23:17,458 | INFO | hr_assistant.pipeline | User question: tell me about holiday policys
+2026-08-01 15:23:17,817 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-01 15:23:17,822 | INFO | hr_assistant.tools | search_hr_policy called with query: holiday policies
+2026-08-01 15:23:24,058 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-01 15:23:24,862 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-01 15:23:24,864 | INFO | hr_assistant.pipeline | Final answer: Sure thing! Here’s a quick rundown of our holiday policies:
+
+| What you need to know | Details |
+|-----------------------|---------|
+| **Public holidays** | We observe **12 official public holidays** each year. The full holiday calendar is published by HR at the start of the year. |
+| **Working on a holiday** | If you’re scheduled to work on a public holiday, you’ll receive **compensatory leave** (time off in lieu). |
+| **Annual paid leave** | Full‑time employees are entitled to **20 days of paid annual leave** per calendar year. |
+| **Advance notice** | Submit leave requests through the HR portal **at least 5 working days** before you plan to take time off. |
+| **Carry‑over** | Unused annual leave can be carried forward to the next year, but only **up to 5 days**. |
+| **Sick leave** | Separate from annual leave: **10 paid sick days** per year. A medical certificate is required for sick leave longer than 2 consecutive days. |
+
+If you have any more questions—like how to request a holiday or what happens if you’re on a public holiday—just let me know!

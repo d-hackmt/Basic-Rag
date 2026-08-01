@@ -1,0 +1,14 @@
+2026-08-01 15:25:07,956 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-01 15:25:07,957 | INFO | hr_assistant.pipeline | Vector store already exists on disk, reusing it
+2026-08-01 15:25:07,957 | INFO | hr_assistant.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-08-01 15:25:07,958 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-01 15:25:07,961 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-08-01 15:25:07,962 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-08-01 15:25:07,962 | INFO | faiss.loader | Loading faiss.
+2026-08-01 15:25:07,998 | INFO | faiss.loader | Successfully loaded faiss.
+2026-08-01 15:25:08,015 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-01 15:25:08,019 | INFO | hr_assistant.llm | Initializing LLM 'openai/gpt-oss-20b'
+2026-08-01 15:25:09,158 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-01 15:25:09,166 | INFO | hr_assistant.agent | HR agent ready
+2026-08-01 15:25:09,167 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
