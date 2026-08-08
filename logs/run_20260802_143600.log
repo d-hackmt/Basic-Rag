@@ -1,0 +1,19 @@
+2026-08-02 14:36:02,892 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-02 14:36:02,892 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-02 14:36:02,893 | INFO | hr_assistant.pipeline | Vector store already exists on disk, reusing it
+2026-08-02 14:36:02,893 | INFO | hr_assistant.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-08-02 14:36:02,893 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-02 14:36:02,898 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-08-02 14:36:02,898 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-08-02 14:36:02,899 | INFO | faiss.loader | Loading faiss.
+2026-08-02 14:36:02,924 | INFO | faiss.loader | Successfully loaded faiss.
+2026-08-02 14:36:02,968 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-02 14:36:02,971 | INFO | hr_assistant.llm | Initializing LLM 'openai/gpt-oss-20b'
+2026-08-02 14:36:04,345 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-02 14:36:04,353 | INFO | hr_assistant.agent | HR agent ready
+2026-08-02 14:36:04,353 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-08-02 14:36:54,504 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-02 14:36:54,506 | INFO | hr_assistant.pipeline | User question: HEYYY
+2026-08-02 14:36:54,997 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-02 14:36:55,017 | INFO | hr_assistant.pipeline | Final answer: Hey there! 👋 How can I help you today?
