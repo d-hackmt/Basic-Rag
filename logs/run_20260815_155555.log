@@ -1,0 +1,44 @@
+2026-08-15 15:56:05,810 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-15 15:56:05,811 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-15 15:56:07,184 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-15 15:56:07,186 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-15 15:56:07,186 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-08-15 15:56:07,187 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-15 15:56:07,585 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-15 15:56:08,519 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-08-15 15:56:08,924 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-15 15:56:09,466 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-15 15:56:09,470 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-08-15 15:56:09,470 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-08-15 15:56:10,484 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-15 15:56:10,492 | INFO | hr_assistant.agent | HR agent ready
+2026-08-15 15:56:10,492 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-08-15 15:56:15,587 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-15 15:56:15,589 | INFO | hr_assistant.pipeline | User question: hi 
+2026-08-15 15:56:16,855 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:18,131 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:18,152 | INFO | hr_assistant.pipeline | Final answer: Hello! 👋 How can I assist you with your HR questions today?
+2026-08-15 15:56:18,318 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:28,001 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-15 15:56:28,003 | INFO | hr_assistant.pipeline | User question: how to make a coffe
+2026-08-15 15:56:28,409 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:29,714 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:29,721 | INFO | hr_assistant.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-08-15 15:56:29,910 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:40,595 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-15 15:56:40,597 | INFO | hr_assistant.pipeline | User question: tell me about leave policy
+2026-08-15 15:56:40,933 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:41,813 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:41,825 | INFO | hr_assistant.tools | search_hr_policy called with query: leave policy
+2026-08-15 15:56:43,261 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-15 15:56:43,265 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-15 15:56:43,863 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:56:43,871 | INFO | hr_assistant.pipeline | Final answer: Sure thing! 🎉 Here’s a quick rundown of our leave policy:
+
+| Type of Leave | Entitlement | How to Request | Extra Details |
+|---------------|-------------|----------------|---------------|
+| **Annual Leave** | 20 paid days per calendar year (full‑time only) | Submit through the HR portal at least **5 working days** in advance | You can carry over up to **5 unused days** to the next year. |
+| **Sick Leave** | 10 paid days per year | Same portal process | If you’re out for **more than 2 consecutive days**, please provide a medical certificate. |
+
+**Pro tip** – keep track of your remaining balance in the HR portal and plan your vacation ahead of time! If you have any more questions or need help submitting a request, just let me know. 🚀
+2026-08-15 15:56:44,053 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

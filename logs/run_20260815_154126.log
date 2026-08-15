@@ -1,0 +1,36 @@
+2026-08-15 15:42:20,431 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-15 15:42:20,432 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-15 15:42:21,864 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-15 15:42:21,867 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-15 15:42:21,868 | INFO | hr_assistant.vector_store | Connecting to qdrant cloud
+2026-08-15 15:42:21,868 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-15 15:42:22,428 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-15 15:42:40,499 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-15 15:42:40,499 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-15 15:42:41,877 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-15 15:42:41,879 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-15 15:42:41,879 | INFO | hr_assistant.vector_store | Connecting to qdrant cloud
+2026-08-15 15:42:41,879 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-15 15:42:42,409 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-15 15:45:00,165 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-15 15:45:00,166 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-15 15:45:01,613 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-15 15:45:01,614 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-15 15:45:01,615 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-08-15 15:45:01,615 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-15 15:45:02,077 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-15 15:45:02,997 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-08-15 15:45:03,444 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-15 15:45:04,624 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-15 15:45:04,632 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-08-15 15:45:04,632 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (primary=@hrpolicy, fallback=@backuphrpolicy)
+2026-08-15 15:45:14,653 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-15 15:45:14,682 | INFO | hr_assistant.agent | HR agent ready
+2026-08-15 15:45:14,682 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-08-15 15:45:51,829 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-15 15:45:51,833 | INFO | hr_assistant.pipeline | User question: hey who are you how to make a coffe
+2026-08-15 15:46:17,428 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-08-15 15:46:47,089 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-15 15:46:47,091 | INFO | hr_assistant.pipeline | User question: hi
+2026-08-15 15:46:47,299 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-15 15:46:47,716 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
