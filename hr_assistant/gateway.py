@@ -25,32 +25,20 @@ from hr_assistant.logger import get_logger
 
 logger = get_logger(__name__)
 
-# my main Model - application
-# model routing
-
+# The one Groq integration set up in the Portkey dashboard for this
+# workspace (see module docstring for why there's only one).
 PRIMARY_PROVIDER = "@hrpolicy"
 
-
-# acces our gateway
-# portkey - ai  - api key
-# openai compatible way to access
 
 
 def get_gateway_llm() -> ChatOpenAI:
     """Return a chat model routed through Portkey (no config/fallback - see module docstring)."""
     logger.info("Routing LLM calls through Portkey (provider=%s)", PRIMARY_PROVIDER)
-    headers = createHeaders(api_key=config.PORTKEY_API_KEY,
-                provider=PRIMARY_PROVIDER)
+    headers = createHeaders(api_key=config.PORTKEY_API_KEY, provider=PRIMARY_PROVIDER)
     return ChatOpenAI(
-        api_key= "portkey",  # dummyy
+        api_key="portkey",  # dummy value - the real auth is in the headers
         base_url=PORTKEY_GATEWAY_URL,
         model=config.LLM_MODEL_NAME,
-        default_headers=headers)
-
-## user 
-
-#gateway 
-
-# send groq , openai , gemini
-
-
+        default_headers=headers,
+    )
+    

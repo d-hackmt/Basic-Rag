@@ -1,0 +1,345 @@
+2026-08-22 15:36:06,044 | INFO | hr_assistant.evaluation | Creating dataset 'hr-policy-qna' with 10 example(s)
+2026-08-22 15:36:07,274 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-22 15:36:07,275 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-22 15:36:08,743 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-22 15:36:08,746 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-22 15:36:08,747 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-08-22 15:36:08,747 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-22 15:36:09,120 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-22 15:36:10,277 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-08-22 15:36:11,202 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-22 15:36:19,447 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-22 15:36:19,453 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-08-22 15:36:19,453 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-08-22 15:36:20,807 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-22 15:36:20,818 | INFO | hr_assistant.agent | HR agent ready
+2026-08-22 15:36:20,818 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-08-22 15:36:20,818 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-08-22 15:36:20,819 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-22 15:36:22,196 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-08-22 15:36:22,644 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-22 15:36:23,157 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-22 15:36:23,159 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-08-22 15:36:25,564 | INFO | hr_assistant.pipeline | User question: How many days per week can I work from home?
+2026-08-22 15:36:25,851 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:29,305 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:29,328 | INFO | hr_assistant.tools | search_hr_policy called with query: work from home policy days per week
+2026-08-22 15:36:30,745 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:30,751 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:36:31,103 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:31,106 | INFO | hr_assistant.pipeline | Final answer: According to the company’s Work‑From‑Home policy, you’re allowed to work from home **up to 2 days per week**. This requires the approval of your manager (and, for fully remote arrangements, written approval from the department head).
+2026-08-22 15:36:31,393 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:32,838 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:33,645 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:34,421 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:34,428 | INFO | hr_assistant.pipeline | User question: Within how many days is full and final settlement processed after the last working day?
+2026-08-22 15:36:34,692 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:35,194 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:35,207 | INFO | hr_assistant.tools | search_hr_policy called with query: Within how many days is full and final settlement processed after the last working day?
+2026-08-22 15:36:35,998 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:36,003 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:36:36,581 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:36,590 | INFO | hr_assistant.pipeline | Final answer: Full and final settlement is processed **within 45 days** of the employee’s last working day.
+2026-08-22 15:36:37,004 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:37,805 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:38,360 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:39,803 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:39,814 | INFO | hr_assistant.pipeline | User question: How many days of paid annual leave do I get per year?
+2026-08-22 15:36:40,058 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:40,490 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:40,497 | INFO | hr_assistant.tools | search_hr_policy called with query: How many days of paid annual leave do I get per year?
+2026-08-22 15:36:41,293 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:41,297 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:36:41,760 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:41,763 | INFO | hr_assistant.pipeline | Final answer: 🌞 **Annual Leave**  
+All full‑time employees are entitled to **20 days of paid annual leave per calendar year**.  
+- Submit requests through the HR portal at least 5 working days in advance.  
+- Unused leave can be carried forward to the next year, but only up to **5 days**.  
+
+Let me know if you’d like help with planning your time off or anything else!
+2026-08-22 15:36:42,139 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:42,954 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:43,519 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:44,613 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:44,623 | INFO | hr_assistant.pipeline | User question: What is the standard notice period for resignation?
+2026-08-22 15:36:44,831 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:44,883 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:36:44,884 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:36:46,293 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:46,301 | INFO | hr_assistant.tools | search_hr_policy called with query: What is the standard notice period for resignation?
+2026-08-22 15:36:47,753 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:47,757 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:36:47,804 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:36:47,805 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-08-22 15:36:49,847 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:36:49,847 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-08-22 15:36:52,282 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:52,287 | INFO | hr_assistant.pipeline | Final answer: The standard notice period for resignation is **30 days**.  
+If you are still within your probation period, the notice period is reduced to **15 days**.
+2026-08-22 15:36:52,644 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:54,088 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:36:54,140 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:36:54,140 | INFO | openai._base_client | Retrying request to /chat/completions in 5.000000 seconds
+2026-08-22 15:36:59,787 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:36:59,839 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:36:59,840 | INFO | openai._base_client | Retrying request to /chat/completions in 7.000000 seconds
+2026-08-22 15:37:07,970 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:07,978 | INFO | hr_assistant.pipeline | User question: Within how many days must reimbursement claims be submitted?
+2026-08-22 15:37:08,216 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:08,266 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:08,267 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:37:09,471 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:09,481 | INFO | hr_assistant.tools | search_hr_policy called with query: Within how many days must reimbursement claims be submitted?
+2026-08-22 15:37:10,940 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:37:10,944 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:37:11,378 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:11,381 | INFO | hr_assistant.pipeline | Final answer: Reimbursement claims must be submitted **within 30 days of the expense**.
+2026-08-22 15:37:11,572 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:18,299 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:37:18,374 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:18,375 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:37:19,969 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:20,026 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:20,026 | INFO | openai._base_client | Retrying request to /chat/completions in 5.000000 seconds
+2026-08-22 15:37:25,068 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:25,068 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:37:26,728 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:26,734 | INFO | hr_assistant.pipeline | User question: How many paid sick days do I get per year?
+2026-08-22 15:37:26,963 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:27,359 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:27,365 | INFO | hr_assistant.tools | search_hr_policy called with query: How many paid sick days do I get per year?
+2026-08-22 15:37:28,790 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:37:28,793 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:37:28,850 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:28,851 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-08-22 15:37:32,257 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:32,261 | INFO | hr_assistant.pipeline | Final answer: You’re entitled to **10 paid sick days per calendar year**.
+2026-08-22 15:37:32,458 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:34,072 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:37:34,131 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:34,132 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-08-22 15:37:37,822 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:37,888 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:37,889 | INFO | openai._base_client | Retrying request to /chat/completions in 9.000000 seconds
+2026-08-22 15:37:48,121 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:48,129 | INFO | hr_assistant.pipeline | User question: How many days of unused annual leave can be carried forward?
+2026-08-22 15:37:49,381 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:49,562 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:49,592 | INFO | hr_assistant.tools | search_hr_policy called with query: How many days of unused annual leave can be carried forward?
+2026-08-22 15:37:52,311 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:37:52,315 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:37:52,366 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:52,367 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-08-22 15:37:55,795 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:55,800 | INFO | hr_assistant.pipeline | Final answer: You can carry forward up to **5 days** of unused annual leave to the next calendar year.
+2026-08-22 15:37:56,023 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:37:57,448 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:37:57,507 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:57,508 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-08-22 15:37:59,552 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:37:59,553 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:01,138 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:01,191 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:01,192 | INFO | openai._base_client | Retrying request to /chat/completions in 8.000000 seconds
+2026-08-22 15:38:10,361 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:10,369 | INFO | hr_assistant.pipeline | User question: How long is the probation period?
+2026-08-22 15:38:10,584 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:10,634 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:10,635 | INFO | openai._base_client | Retrying request to /chat/completions in 5.000000 seconds
+2026-08-22 15:38:15,775 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:15,785 | INFO | hr_assistant.tools | search_hr_policy called with query: probation period
+2026-08-22 15:38:17,227 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:38:17,231 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:38:17,281 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:17,282 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-08-22 15:38:19,336 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:19,337 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:20,822 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:20,828 | INFO | hr_assistant.pipeline | Final answer: The probation period for new employees is **3 months** from their date of joining.
+2026-08-22 15:38:21,108 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:22,525 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:38:22,574 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:22,574 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-08-22 15:38:26,222 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:26,293 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:26,294 | INFO | openai._base_client | Retrying request to /chat/completions in 6.000000 seconds
+2026-08-22 15:38:33,276 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:33,284 | INFO | hr_assistant.pipeline | User question: How many public holidays does the company observe each year?
+2026-08-22 15:38:33,525 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:33,563 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:33,563 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:34,934 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:34,941 | INFO | hr_assistant.tools | search_hr_policy called with query: How many public holidays does the company observe each year?
+2026-08-22 15:38:36,361 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:38:36,364 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 15:38:36,907 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:36,910 | INFO | hr_assistant.pipeline | Final answer: The company observes **12 public holidays each year**. Employees who work on any of those days are eligible for compensatory leave.
+2026-08-22 15:38:37,622 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:39,063 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 15:38:39,103 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:39,104 | INFO | openai._base_client | Retrying request to /chat/completions in 4.000000 seconds
+2026-08-22 15:38:43,139 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:43,140 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:44,175 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:44,272 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a028f1-8a04-7de1-89c3-221eb031261c: RateLimitError("Error code: 429 - {'error': {'message': 'groq error: Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kes0954nf57brkknfdg21n6a` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6607, Requested 1431. Please try again in 285ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}, 'provider': 'groq'}")
+Traceback (most recent call last):
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1672, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 777, in wrapper
+    function_result = run_container["context"].run(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openevals\llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openevals\utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 777, in wrapper
+    function_result = run_container["context"].run(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openevals\utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openevals\llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 3442, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6002, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+    self.generate_prompt(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1865, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1672, in generate
+    self._generate_with_cache(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2010, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1752, in _generate
+    _handle_openai_api_error(e)
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1724, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_base_client.py", line 1382, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_base_client.py", line 1155, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'groq error: Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kes0954nf57brkknfdg21n6a` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6607, Requested 1431. Please try again in 285ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}, 'provider': 'groq'}
+2026-08-22 15:38:44,313 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:44,314 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:46,063 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:46,071 | INFO | hr_assistant.pipeline | User question: What is the notice period during probation?
+2026-08-22 15:38:46,318 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:46,354 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:46,355 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:47,389 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:47,390 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:48,422 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:48,525 | ERROR | langsmith.evaluation._runner | Error running target function: Error code: 429 - {'error': {'message': 'groq error: Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kes0954nf57brkknfdg21n6a` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7218, Requested 897. Please try again in 862.5ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}, 'provider': 'groq'}
+Traceback (most recent call last):
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1976, in _forward
+    fn(*args, langsmith_extra=langsmith_extra)
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 777, in wrapper
+    function_result = run_container["context"].run(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\hr_assistant\evaluation.py", line 119, in target
+    answer = ask(agent, inputs["question"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\hr_assistant\pipeline.py", line 79, in ask
+    response = agent.invoke({"messages": [{"role": "user", "content": question}]})
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langgraph\pregel\main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langgraph\pregel\_runner.py", line 207, in tick
+    run_with_retry(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langgraph\pregel\_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 684, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langgraph\_internal\_runnable.py", line 426, in invoke
+    ret = self.func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1447, in model_node
+    model_response = _execute_model_sync(request)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain\agents\factory.py", line 1419, in _execute_model_sync
+    output = model_.invoke(messages)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\runnables\base.py", line 6002, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 476, in invoke
+    self.generate_prompt(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1865, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1672, in generate
+    self._generate_with_cache(
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2010, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1752, in _generate
+    _handle_openai_api_error(e)
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langchain_openai\chat_models\base.py", line 1747, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_utils\_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_base_client.py", line 1382, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\openai\_base_client.py", line 1155, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'groq error: Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kes0954nf57brkknfdg21n6a` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7218, Requested 897. Please try again in 862.5ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}, 'provider': 'groq'}
+During task with name 'model' and id '5a6c67ed-ce94-4a62-e78d-eadf701bd8eb'
+2026-08-22 15:38:48,563 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:48,564 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:49,595 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-08-22 15:38:49,596 | INFO | openai._base_client | Retrying request to /chat/completions in 1.000000 seconds
+2026-08-22 15:38:51,393 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 15:38:51,401 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a028f1-bbf7-7b50-a655-66444d17df14: KeyError('answer')
+Traceback (most recent call last):
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\_runner.py", line 1672, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\run_helpers.py", line 777, in wrapper
+    function_result = run_container["context"].run(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\basicragenv\Lib\site-packages\langsmith\evaluation\evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\djadh\Downloads\WILLLSSSSSS\01 BASIC RAG\hr_assistant\evaluation.py", line 139, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+                                                 ~~~~~~~^^^^^^^^^^
+KeyError: 'answer'

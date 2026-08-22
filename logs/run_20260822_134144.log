@@ -1,0 +1,55 @@
+2026-08-22 13:41:57,688 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-22 13:41:57,689 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-22 13:41:59,079 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-22 13:41:59,082 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-22 13:41:59,083 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-08-22 13:41:59,084 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-22 13:41:59,450 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-22 13:42:00,422 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-08-22 13:42:00,820 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-22 13:42:01,854 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-22 13:42:01,860 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-08-22 13:42:01,860 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-08-22 13:42:03,062 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-22 13:42:03,090 | INFO | hr_assistant.agent | HR agent ready
+2026-08-22 13:42:03,090 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions
+2026-08-22 13:42:12,922 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-22 13:42:12,924 | INFO | hr_assistant.pipeline | User question: heyyy
+2026-08-22 13:42:13,272 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 13:42:14,158 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 13:42:14,177 | INFO | hr_assistant.pipeline | Final answer: Hey there! 👋 How can I help you today? If you have any questions about HR policies—like leave, remote work, or anything else—just let me know!
+2026-08-22 13:42:14,612 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 14:00:39,740 | INFO | __main__ | === Streamlit run: new question received ===
+2026-08-22 14:00:39,742 | INFO | hr_assistant.pipeline | User question: tell me about the leave policy
+2026-08-22 14:00:40,004 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 14:00:40,908 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 14:00:40,917 | INFO | hr_assistant.tools | search_hr_policy called with query: leave policy
+2026-08-22 14:00:42,703 | INFO | httpx | HTTP Request: POST https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/points/query "HTTP/1.1 200 OK"
+2026-08-22 14:00:42,707 | INFO | hr_assistant.tools | Found 3 matching chunk(s)
+2026-08-22 14:00:43,485 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-22 14:00:43,490 | INFO | hr_assistant.pipeline | Final answer: **Leave Policy Overview**
+
+| Type of Leave | Entitlement | Key Rules |
+|---------------|-------------|-----------|
+| **Paid Annual Leave** | 20 days per calendar year | • Must be requested through the HR portal at least **5 working days** before the planned start date. <br>• Unused days can be carried forward to the next year, but only up to **5 days**. |
+| **Sick Leave** | 10 paid days per year | • Separate from annual leave. <br>• A **medical certificate** is required if the sick leave exceeds **2 consecutive days**. |
+
+---
+
+### How to Apply
+1. Log into the HR portal.  
+2. Open the “Leave Request” form.  
+3. Enter the dates and type of leave.  
+4. Submit at least **5 working days** in advance (for annual leave) or as soon as you know you’ll be ill (for sick leave).  
+5. For sick leave >2 days, attach a medical certificate.
+
+### Carry‑Forward
+- You may roll over up to **5 unused annual leave days** into the next calendar year.  
+- Excess days (beyond 5) will be forfeited.
+
+### Sick Leave
+- You’re entitled to **10 paid sick days** annually.  
+- For illnesses longer than 2 days, provide a medical certificate to HR for verification.
+
+If you have any more questions about how this applies to your specific situation—like during probation, or how it interacts with other benefits—feel free to ask!
+2026-08-22 14:00:43,871 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

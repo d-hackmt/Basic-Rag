@@ -75,3 +75,7 @@ def check_api_keys() -> None:
         raise ValueError("Missing GROQ_API_KEY. Please add it to your .env file.")
     if not JINA_API_KEY:
         raise ValueError("Missing JINA_API_KEY. Please add it to your .env file.")
+    if not QDRANT_URL or not QDRANT_API_KEY:
+        raise ValueError("Missing QDRANT_URL/QDRANT_API_KEY. Please add them to your .env file.")
+    if not PORTKEY_API_KEY:
+        raise ValueError("Missing PORTKEY_API_KEY. Please add it to your .env file.")
