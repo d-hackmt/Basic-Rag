@@ -1,0 +1,25 @@
+# Never bake secrets into the image - passed in at "docker run" time instead.
+.env
+.env.docker
+.env.example
+
+# Local dev venv and Python cache - not needed inside the container.
+rbemv/
+basicragenv/
+__pycache__/
+*.pyc
+
+# Generated at runtime, not part of the app itself.
+logs/
+
+# Not needed to run the app.
+.git/
+.gitignore
+NOTES/
+rag.ipynb
+.ipynb_checkpoints/
+README.md
+docs/
+
+# Teaching-only reference material, never part of the shipped app.
+REF CODE BASE/

@@ -1,0 +1,15 @@
+2026-08-29 15:15:21,468 | INFO | hr_assistant.pipeline | Building HR assistant...
+2026-08-29 15:15:21,468 | INFO | hr_assistant.tracing | LangSmith tracing ENABLED - project 'hr_policy_assistant', traces at https://smith.langchain.com
+2026-08-29 15:15:23,025 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy/exists "HTTP/1.1 200 OK"
+2026-08-29 15:15:23,028 | INFO | hr_assistant.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-08-29 15:15:23,029 | INFO | hr_assistant.vector_store | Connecting to existing Qdrant collection 'hr_policy'
+2026-08-29 15:15:23,030 | INFO | hr_assistant.embeddings | Initializing embeddings model 'jina-embeddings-v2-base-en'
+2026-08-29 15:15:23,421 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-29 15:15:24,619 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333/collections/hr_policy "HTTP/1.1 200 OK"
+2026-08-29 15:15:25,983 | INFO | hr_assistant.vector_store | Creating retriever with top_k=3
+2026-08-29 15:15:25,987 | INFO | hr_assistant.llm | Initializing LLM via Portkey
+2026-08-29 15:15:25,987 | INFO | hr_assistant.gateway | Routing LLM calls through Portkey (provider=@hrpolicy)
+2026-08-29 15:15:26,050 | INFO | httpx | HTTP Request: GET https://60e7be90-150c-44fc-84e4-c9e99c9418c3.sa-east-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-08-29 15:15:27,682 | INFO | hr_assistant.agent | Creating HR agent with 1 tool(s)
+2026-08-29 15:15:27,733 | INFO | hr_assistant.agent | HR agent ready
+2026-08-29 15:15:27,733 | INFO | hr_assistant.pipeline | HR assistant is ready to take questions

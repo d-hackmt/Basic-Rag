@@ -3,3 +3,5 @@ basicragenv
 .env
 
 data\faiss_index
+
+.env.docker
