@@ -29,7 +29,7 @@ from openevals.prompts import CORRECTNESS_PROMPT, RAG_GROUNDEDNESS_PROMPT
 from portkey_ai import createHeaders, PORTKEY_GATEWAY_URL
 
 from hr_assistant import config
-from hr_assistant.gateway import PRIMARY_PROVIDER , JUDGE_PROVIDER
+from hr_assistant.gateway import PRIMARY_PROVIDER
 from hr_assistant.logger import get_logger
 from hr_assistant.pipeline import ask, build_hr_assistant
 from hr_assistant.vector_store import get_retriever, load_vector_store
