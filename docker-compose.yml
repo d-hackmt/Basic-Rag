@@ -1,0 +1,21 @@
+services:
+  # The always-on web app - a "service" in the microservices sense.
+  # Starts with `docker compose up`.
+  app:
+    build: .
+    command: streamlit run app.py --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+
+  # A one-off job, not a service - it runs evaluate.py once and exits.
+  # `profiles: ["tools"]` keeps it OUT of `docker compose up` by default;
+  # it only runs when you explicitly ask for it with `docker compose run eval`.
+  eval:
+    build: .
+    command: python evaluate.py
+    env_file:
+      - .env
+    profiles:
+      - tools
