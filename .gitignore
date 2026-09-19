@@ -32,3 +32,8 @@ logs/
 Thumbs.db
 .vscode/
 .idea/
+
+# aws secrets 
+
+hrrag_accessKeys.csv
+key-to-connect.pem

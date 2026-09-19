@@ -1,7 +1,6 @@
 """Step 1: read the raw document from the data folder."""
 
 from langchain_community.document_loaders import TextLoader
-from lark import logger
 from hr_assistant import config
 from hr_assistant.logger import get_logger
 
