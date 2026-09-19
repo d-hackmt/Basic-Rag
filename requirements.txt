@@ -38,3 +38,6 @@ langchain-openai
 # evaluations 
 
 openevals
+
+# tests (CI smoke test before evaluation/build/deploy)
+pytest

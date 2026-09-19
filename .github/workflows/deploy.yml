@@ -1,10 +1,16 @@
 name: deploy
 
-# CI/CD: on every push to main, build the Docker image, push it to Amazon ECR,
-# then SSH into the EC2 instance and restart the container with the new image.
-# Uses long-lived AWS access keys (stored as GitHub secrets) instead of OIDC,
-# and a regular ubuntu-latest runner that SSHes out to the box - no self-hosted
-# runner needed, no SSM. See docs/09_cicd_aws_ecr_ec2.md for background.
+# CI/CD: on every push to main, four gated jobs run in order -
+#   1. test        - smoke-tests ask(agent, question) against the real agent
+#   2. evaluate     - runs 5 of the 10 LangSmith correctness/groundedness examples (fast CI check)
+#   3. build-and-push - builds the Docker image, pushes it to Amazon ECR
+#   4. deploy       - SSHes into EC2 and restarts the container with the new image
+# Each job only starts if the one before it succeeded (via `needs:`), so a
+# broken agent or a crashing eval run stops the pipeline before anything gets
+# built or deployed. Uses long-lived AWS access keys (stored as GitHub
+# secrets) instead of OIDC, and a regular ubuntu-latest runner that SSHes out
+# to the box - no self-hosted runner needed, no SSM. See
+# docs/09_cicd_aws_ecr_ec2.md and docs/10_advanced_deployment.md for background.
 
 on:
   push:
@@ -22,16 +28,66 @@ env:
   APP_PORT: 8501
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Write .env from secret
+        run: printf '%s' "${{ secrets.APP_ENV_FILE }}" > .env
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install dependencies
+        run: uv pip install --system -r requirements.txt
+
+      - name: Run smoke test (ask(agent, question))
+        run: python -m pytest tests/ -v
+
+  evaluate:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Write .env from secret
+        run: printf '%s' "${{ secrets.APP_ENV_FILE }}" > .env
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install dependencies
+        run: uv pip install --system -r requirements.txt
+
+      - name: Run evaluation suite (5 examples, keeps CI fast)
+        env:
+          EVAL_LIMIT: "5"
+        run: python evaluate.py
+
   build-and-push:
+    needs: evaluate
     runs-on: ubuntu-latest
     outputs:
       image: ${{ steps.build.outputs.image }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
